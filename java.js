@@ -81,32 +81,4 @@ function scoreKeeper(winner) {
     if (computerScore == 5 || humanScore == 5) {
         console.log("end game");
     };
-
 }
-
-
-
-
-// function playGame() {
-
-//     for (let i = 1; i <= 5; i++) {
-
-//         console.log(`Round ${i}`);
-
-//         let winner = playRound();
-//         if (winner === 'human') {
-//             humanScore += 1;
-//             console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
-//         }
-//         else if (winner === 'pc') {
-//             computerScore += 1;
-//             console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
-//         } else { console.log(`[You: ${humanScore} | Computer: ${computerScore}]`) };
-
-//         if (i == 5) {
-//             if (humanScore > computerScore) { console.log("You have won the game!") }
-//             else if (humanScore < computerScore) { console.log("You have lost the game") }
-//             else { (console.log("It's a tie!")) };
-//         };
-//     }
-// }
