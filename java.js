@@ -22,6 +22,10 @@ buttons.forEach((button) => {
     })
 })
 
+let humanScore = 0;
+let computerScore = 0;
+
+
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     switch (computerChoice) {
@@ -64,9 +68,6 @@ function playRound(humanChoice) {
 };
 
 // function playGame() {
-
-//     let humanScore = 0;
-//     let computerScore = 0;
 
 //     for (let i = 1; i <= 5; i++) {
 
