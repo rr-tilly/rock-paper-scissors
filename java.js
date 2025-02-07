@@ -15,6 +15,13 @@ buttonHolder.appendChild(rockButton);
 buttonHolder.appendChild(paperButton);
 buttonHolder.appendChild(scissorsButton);
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        playRound(e.target.textContent);
+    })
+})
+
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     switch (computerChoice) {
@@ -30,7 +37,7 @@ function getComputerChoice() {
     }
 }
 
-function playRound() {
+function playRound(humanChoice) {
 
     const humanChoice = getHumanChoice();
     console.log(humanChoice);
