@@ -39,9 +39,6 @@ function getComputerChoice() {
 
 function playRound(humanChoice) {
 
-    const humanChoice = getHumanChoice();
-    console.log(humanChoice);
-
     const computerChoice = getComputerChoice();
 
     let round = humanChoice.charAt(0) + computerChoice.charAt(0);
