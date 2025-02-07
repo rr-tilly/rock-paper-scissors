@@ -1,3 +1,42 @@
+let humanScore = 0;
+let computerScore = 0;
+
+const mainDiv = document.createElement("div");
+const humanScoreBoard = document.createElement("div");
+const computerScoreBoard = document.createElement("div");
+
+const humanScoreLabel = document.createElement("h3");
+humanScoreLabel.textContent = "HUMAN"
+const computerScoreLabel = document.createElement("h3");
+computerScoreLabel.textContent = "COMPUTER"
+
+const humanScoreText = document.createElement("h5");
+humanScoreText.style.textAlign = "center"
+const computerScoreText = document.createElement("h5");
+computerScoreText.style.textAlign = "center"
+
+humanScoreText.textContent = humanScore;
+computerScoreText.textContent = computerScore;
+
+humanScoreBoard.appendChild(humanScoreLabel);
+humanScoreBoard.appendChild(humanScoreText);
+
+computerScoreBoard.appendChild(computerScoreLabel);
+computerScoreBoard.appendChild(computerScoreText);
+
+const vsLabel = document.createElement("h5")
+vsLabel.textContent = "VS";
+vsLabel.style.padding = "0px 20px"
+
+mainDiv.style.display = "flex";
+mainDiv.style.justifyContent = "center";
+
+mainDiv.appendChild(humanScoreBoard);
+mainDiv.appendChild(vsLabel);
+mainDiv.appendChild(computerScoreBoard);
+
+
+document.body.appendChild(mainDiv);
 
 //create button for player selection
 const buttonHolder = document.createElement("div")
@@ -10,20 +49,23 @@ rockButton.textContent = "Rock";
 paperButton.textContent = "Paper";
 scissorsButton.textContent = "Scissors";
 
-document.body.appendChild(buttonHolder);
+
 buttonHolder.appendChild(rockButton);
 buttonHolder.appendChild(paperButton);
 buttonHolder.appendChild(scissorsButton);
 
+document.body.appendChild(buttonHolder);
+buttonHolder.style.textAlign = "center";
+
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
+    button.style.margin = "10px"
     button.addEventListener("click", (e) => {
         playRound(e.target.textContent);
     })
 })
 
-let humanScore = 0;
-let computerScore = 0;
+
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
@@ -71,10 +113,12 @@ function scoreKeeper(winner) {
 
     if (winner === 'human') {
         humanScore += 1;
+        humanScoreText.textContent = humanScore;
         console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
     }
     else if (winner === 'pc') {
         computerScore += 1;
+        computerScoreText.textContent = computerScore;
         console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
     } else { console.log(`[You: ${humanScore} | Computer: ${computerScore}]`) };
 
@@ -82,3 +126,5 @@ function scoreKeeper(winner) {
         console.log("end game");
     };
 }
+
+
