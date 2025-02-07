@@ -1,5 +1,20 @@
 
-//function that randomly returns “rock”, “paper” or “scissors” for Computer's Choice
+//create button for player selection
+const buttonHolder = document.createElement("div")
+
+const rockButton = document.createElement("button");
+const paperButton = document.createElement("button");
+const scissorsButton = document.createElement("button");
+
+rockButton.textContent = "Rock";
+paperButton.textContent = "Paper";
+scissorsButton.textContent = "Scissors";
+
+document.body.appendChild(buttonHolder);
+buttonHolder.appendChild(rockButton);
+buttonHolder.appendChild(paperButton);
+buttonHolder.appendChild(scissorsButton);
+
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     switch (computerChoice) {
@@ -15,33 +30,10 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-
-}
-
-//create button for player selection
-function createButtons() {
-    const buttonHolder = document.createElement("div")
-
-    const rockButton = document.createElement("button");
-    const paperButton = document.createElement("button");
-    const scissorsButton = document.createElement("button");
-
-    rockButton.textContent = "Rock";
-    paperButton.textContent = "Paper";
-    scissorsButton.textContent = "Scissors";
-
-    document.body.appendChild(buttonHolder);
-    buttonHolder.appendChild(rockButton);
-    buttonHolder.appendChild(paperButton);
-    buttonHolder.appendChild(scissorsButton);
-
-    rockButton.addEventListener("click", (e) => console.log(e.target.textContent));
-    paperButton.addEventListener("click", (e) => console.log(e.target.textContent));
-    scissorsButton.addEventListener("click", (e) => console.log(e.target.textContent));
-}
-
 function playRound() {
+
+    const humanChoice = getHumanChoice();
+    console.log(humanChoice);
 
     const computerChoice = getComputerChoice();
 
@@ -67,37 +59,29 @@ function playRound() {
     }
 };
 
+// function playGame() {
 
-// plays 5 rounds
-function playGame() {
-    // global variables to initialize player scores at 0;
-    let humanScore = 0;
-    let computerScore = 0;
-    createButtons();
+//     let humanScore = 0;
+//     let computerScore = 0;
 
+//     for (let i = 1; i <= 5; i++) {
 
-    for (let i = 1; i <= 5; i++) {
+//         console.log(`Round ${i}`);
 
-        console.log(`Round ${i}`);
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+//         let winner = playRound();
+//         if (winner === 'human') {
+//             humanScore += 1;
+//             console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
+//         }
+//         else if (winner === 'pc') {
+//             computerScore += 1;
+//             console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
+//         } else { console.log(`[You: ${humanScore} | Computer: ${computerScore}]`) };
 
-        let winner = playRound(humanSelection, computerSelection);
-        if (winner === 'human') {
-            humanScore += 1;
-            console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
-        }
-        else if (winner === 'pc') {
-            computerScore += 1;
-            console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
-        } else { console.log(`[You: ${humanScore} | Computer: ${computerScore}]`) };
-
-        if (i == 5) {
-            if (humanScore > computerScore) { console.log("You have won the game!") }
-            else if (humanScore < computerScore) { console.log("You have lost the game") }
-            else { (console.log("It's a tie!")) };
-        };
-    }
-}
-
-playGame();
+//         if (i == 5) {
+//             if (humanScore > computerScore) { console.log("You have won the game!") }
+//             else if (humanScore < computerScore) { console.log("You have lost the game") }
+//             else { (console.log("It's a tie!")) };
+//         };
+//     }
+// }
