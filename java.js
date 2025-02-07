@@ -25,7 +25,6 @@ buttons.forEach((button) => {
 let humanScore = 0;
 let computerScore = 0;
 
-
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     switch (computerChoice) {
@@ -52,20 +51,41 @@ function playRound(humanChoice) {
 
         console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
 
-        return 'human';
+        scoreKeeper('human');
+
     }
     else if (round === "RP" || round === "PS" || round === "SR") {
 
         console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
 
-        return 'pc';
+        scoreKeeper('pc');
     }
     else {
         console.log("It's a tie");
 
-        return '';
+        scoreKeeper('');
     }
 };
+
+function scoreKeeper(winner) {
+
+    if (winner === 'human') {
+        humanScore += 1;
+        console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
+    }
+    else if (winner === 'pc') {
+        computerScore += 1;
+        console.log(`[You: ${humanScore} | Computer: ${computerScore}]`)
+    } else { console.log(`[You: ${humanScore} | Computer: ${computerScore}]`) };
+
+    if (computerScore == 5 || humanScore == 5) {
+        console.log("end game");
+    };
+
+}
+
+
+
 
 // function playGame() {
 
