@@ -60,8 +60,7 @@ buttons.forEach((button) => {
     button.setAttribute(
         "style",
 
-        "width: 100px" +
-        "color: white; " +
+        "width: 100px; " +
         "font-size: 16px; " +
         "padding: 10px 20px; " +
         "border-radius: 5px; " +
