@@ -148,8 +148,59 @@ function scoreKeeper(winner) {
     } else { console.log(`[You: ${humanScore} | Computer: ${computerScore}]`) };
 
     if (computerScore == 5 || humanScore == 5) {
-
+        if (humanScore === 5) endGame("human")
+        else endGame("computer");
     };
 }
 
+
+function endGame(winner) {
+
+    let declaration = "";
+    if (winner === "human") {
+        declaration = "Congratulations! You have won the game."
+    } else { declaration = "You have lost..." };
+
+    let endGameDiv = document.createElement("div");
+    endGameDiv.setAttribute(
+        "style",
+
+        `
+        position: absolute;
+        border: 2px solid black;
+        background-color: gainsboro;
+        z-index: 10;
+        border-radius: 10px;
+        width: 400px;
+        margin: 10px auto;
+    padding: 10px;    
+        top: 60px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        `
+    );
+
+    const decHeader = document.createElement("h3");
+    decHeader.textContent = declaration;
+    endGameDiv.appendChild(decHeader);
+
+    const restart = document.createElement("button");
+    restart.style.marginBottom = "18.72px"
+    restart.textContent = "Play Again"
+
+    endGameDiv.appendChild(restart);
+
+    restart.addEventListener("click", () => {
+
+        document.body.removeChild(endGameDiv);
+        humanScore = 0;
+        computerScore = 0;
+        humanVsPCChoiceDisplay.textContent = "Rock, Paper or Scissors?";
+        resultDisplay.textContent = "Human vs Computer";
+        console.log("new game");
+    })
+
+    document.body.appendChild(endGameDiv);
+}
 
