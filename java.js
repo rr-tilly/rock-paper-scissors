@@ -111,7 +111,17 @@ function playRound(humanChoice) {
 
     if (round === "PR" || round === "SP" || round === "RS") {
 
-        resultDisplay.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+        switch (round) {
+            case "PR":
+                resultDisplay.textContent = `YOU WIN! Paper covers Rock!`;
+                break;
+            case "SP":
+                resultDisplay.textContent = `YOU WIN! Scissors cut Paper!`;
+                break;
+            case "RS":
+                resultDisplay.textContent = `YOU WIN! Rocks crushes Scissors!`;
+                break;
+        }
 
         scoreKeeper('human');
 
@@ -121,10 +131,13 @@ function playRound(humanChoice) {
         switch (round) {
             case "RP":
                 resultDisplay.textContent = `You lose! Rock gets covered by Paper!`;
+                break;
             case "PS":
                 resultDisplay.textContent = `You lose! Paper gets cut by Scissors!`;
+                break;
             case "SR":
                 resultDisplay.textContent = `You lose! Scissors gets crushed by Rocks!`;
+                break;
         }
 
         scoreKeeper('pc');
