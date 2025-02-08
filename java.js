@@ -107,25 +107,30 @@ function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
 
     let round = humanChoice.charAt(0) + computerChoice.charAt(0);
-    console.log(humanChoice, " vs ", computerChoice);
+    humanVsPCChoiceDisplay.textContent = humanChoice + " vs " + computerChoice;
 
     if (round === "PR" || round === "SP" || round === "RS") {
 
-        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+        resultDisplay.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
 
         scoreKeeper('human');
 
     }
     else if (round === "RP" || round === "PS" || round === "SR") {
 
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+        switch (round) {
+            case "RP":
+                resultDisplay.textContent = `You lose! Rock gets covered by Paper!`;
+            case "PS":
+                resultDisplay.textContent = `You lose! Paper gets cut by Scissors!`;
+            case "SR":
+                resultDisplay.textContent = `You lose! Scissors gets crushed by Rocks!`;
+        }
 
         scoreKeeper('pc');
     }
     else {
-        console.log("It's a tie");
-
-        scoreKeeper('');
+        resultDisplay.textContent = "It's a tie!";
     }
 };
 
@@ -143,7 +148,7 @@ function scoreKeeper(winner) {
     } else { console.log(`[You: ${humanScore} | Computer: ${computerScore}]`) };
 
     if (computerScore == 5 || humanScore == 5) {
-        console.log("end game");
+
     };
 }
 
