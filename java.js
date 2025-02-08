@@ -10,9 +10,9 @@ humanScoreLabel.textContent = "HUMAN"
 const computerScoreLabel = document.createElement("h3");
 computerScoreLabel.textContent = "COMPUTER"
 
-const humanScoreText = document.createElement("h5");
+const humanScoreText = document.createElement("h4");
 humanScoreText.style.textAlign = "center"
-const computerScoreText = document.createElement("h5");
+const computerScoreText = document.createElement("h4");
 computerScoreText.style.textAlign = "center"
 
 humanScoreText.textContent = humanScore;
@@ -35,7 +35,22 @@ mainDiv.appendChild(humanScoreBoard);
 mainDiv.appendChild(vsLabel);
 mainDiv.appendChild(computerScoreBoard);
 
+
+const gameDisplay = document.createElement("div");
+
+const humanVsPCChoiceDisplay = document.createElement("p");
+humanVsPCChoiceDisplay.textContent = "Rock, Paper or Scissors?";
+humanVsPCChoiceDisplay.style.textAlign = "center";
+
+const resultDisplay = document.createElement("p")
+resultDisplay.textContent = "Human vs Computer";
+resultDisplay.style.textAlign = "center";
+
+gameDisplay.appendChild(humanVsPCChoiceDisplay);
+gameDisplay.appendChild(resultDisplay);
+
 document.body.appendChild(mainDiv);
+document.body.appendChild(gameDisplay);
 
 //create button for player selection
 const buttonHolder = document.createElement("div")
