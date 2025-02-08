@@ -187,7 +187,7 @@ function endGame(winner) {
         width: 400px;
         margin: 10px auto;
     padding: 10px;    
-        top: 60px;
+        top: 200px;
         left: 0;
         right: 0;
         text-align: center;
