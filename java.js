@@ -35,7 +35,6 @@ mainDiv.appendChild(humanScoreBoard);
 mainDiv.appendChild(vsLabel);
 mainDiv.appendChild(computerScoreBoard);
 
-
 document.body.appendChild(mainDiv);
 
 //create button for player selection
@@ -49,7 +48,6 @@ rockButton.textContent = "Rock";
 paperButton.textContent = "Paper";
 scissorsButton.textContent = "Scissors";
 
-
 buttonHolder.appendChild(rockButton);
 buttonHolder.appendChild(paperButton);
 buttonHolder.appendChild(scissorsButton);
@@ -59,13 +57,21 @@ buttonHolder.style.textAlign = "center";
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
-    button.style.margin = "10px"
+    button.setAttribute(
+        "style",
+
+        "width: 100px" +
+        "color: white; " +
+        "font-size: 16px; " +
+        "padding: 10px 20px; " +
+        "border-radius: 5px; " +
+        "margin: 20px; "
+    );
+
     button.addEventListener("click", (e) => {
         playRound(e.target.textContent);
     })
 })
-
-
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
