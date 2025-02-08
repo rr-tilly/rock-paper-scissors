@@ -43,7 +43,7 @@ humanVsPCChoiceDisplay.textContent = "Rock, Paper or Scissors?";
 humanVsPCChoiceDisplay.style.textAlign = "center";
 
 const resultDisplay = document.createElement("p")
-resultDisplay.textContent = "Human vs Computer";
+resultDisplay.textContent = "Race to Five";
 resultDisplay.style.textAlign = "center";
 
 gameDisplay.appendChild(humanVsPCChoiceDisplay);
@@ -205,15 +205,20 @@ function endGame(winner) {
     endGameDiv.appendChild(restart);
 
     restart.addEventListener("click", () => {
-
+        newGame();
         document.body.removeChild(endGameDiv);
-        humanScore = 0;
-        computerScore = 0;
-        humanVsPCChoiceDisplay.textContent = "Rock, Paper or Scissors?";
-        resultDisplay.textContent = "Human vs Computer";
-        console.log("new game");
     })
 
     document.body.appendChild(endGameDiv);
 }
 
+function newGame() {
+    humanVsPCChoiceDisplay.textContent = "Rock, Paper or Scissors?";
+    resultDisplay.textContent = "Race to Five";
+
+    humanScore = 0;
+    computerScore = 0;
+
+    humanScoreText.textContent = humanScore;
+    computerScoreText.textContent = computerScore;
+}
